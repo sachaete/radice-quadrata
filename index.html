@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Page Title</title>
+<style>
+    h1{
+    text-align:center;
+    }
+    
+    em{
+    color: blue;
+    background-color:orange;
+    }
+</style>
+</head>
+<body>
+
+
+<h1><em>Calcolatrice di radici quadrate</em></h1>
+<CENTER>
+<MARQUEE WIDTH="110%" scrollamount="10"><FONT SIZE="5"
+COLOR="red">Calcola in pochi secondi</FONT>
+</MARQUEE>
+</CENTER>
+
+
+<h1></h1>
+<p></p>
+<input id="scelta" type="text" oninput="go()" placeholder="scegli un numero">  <br> <br> <br> 
+<button onclick= "sqrt()">
+calcola
+</button>
+<p id="risultato">
+</p>
+<script>
+// programmazione della text box e del bottone 
+var number=document.getElementById("scelta")
+var p = document.getElementById("risultato")
+// E' una funzione che restituisce la radice quadrata del numero scelto
+function sqrt(){
+// il numero scelto deve essere maggiore di 0
+if (scelta.value>0){
+// Calcolo della radice cercando di trovare due numeri sempre più simili tra di loro in modo da dare la radice perfetta.
+var x
+var y
+x=scelta.value/2
+y=scelta.value/x
+// Ciclo "for" programmato in modo che il calcolo per trovare due numeri identici che diano la radice continui fino a 200 volte.In questo modo il calcolo per i numeri più grandi è più preciso.
+for(var i=1;i<200;i++){
+x=(x+y)/2
+y=scelta.value/x
+}
+p.innerHTML=(x+y)/2
+// avviso che il numero deve essere maggiore di 0
+}else {p.innerHTML="il numero deve essere assolutamente maggiore di zero"}
+}
+</script>
